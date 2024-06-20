@@ -1,18 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:hello/home%20screen/my%20learning/learning.dart';
 
-import 'datascience.dart';
-import 'flutter.dart';
-import 'mernstack.dart';
+import '../navigation/navigation.dart';
+import 'Scholarship Details/Scholarship detail.dart';
+import 'contacts/contact.dart';
+import 'datascience/datascience.dart';
+import 'flutter/flutter.dart';
+import 'mern/mernstack.dart';
 
-void main() {
-  runApp(MaterialApp(
-    home: Screen1(),
-    useInheritedMediaQuery: true,
-    debugShowCheckedModeBanner: false,
-  ));
-}
+
 
 class Screen1 extends StatefulWidget {
   @override
@@ -20,9 +19,104 @@ class Screen1 extends StatefulWidget {
 }
 
 class _Screen1State extends State<Screen1> {
+  GlobalKey<ScaffoldState>_scaffoldkey=GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+    key: _scaffoldkey,
+      endDrawer: Padding(
+        padding: const EdgeInsets.only(left: 150,top: 30),
+        child: Drawer(
+          child: ListView(
+
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              SizedBox(height: 30),
+             Padding(
+               padding: const EdgeInsets.all(8.0),
+               child: Container(height: 63,width: 198,
+                 decoration: BoxDecoration(borderRadius: BorderRadius.circular(12),color: Colors.grey[300]
+
+                 ),
+                 child: Stack(
+                   children: [
+
+                     Positioned(left: 30,top: 10,
+                       child: CircleAvatar(
+                         backgroundImage: AssetImage("assets/image/photo-1.jpeg"),
+                       ),
+                     ),
+                     Positioned(left: 80,top: 10,
+                       child: Text(
+                         "Good Morning",
+                         style: TextStyle(color: Colors.grey[500]),
+                       ),
+                     ),
+                     Positioned(left: 80,top: 30,
+                       child: Text(
+                         "Kevin Roan",
+                         style: TextStyle(
+                             color: Colors.black87,
+                             fontWeight: FontWeight.bold,
+                             fontSize: 17),
+                       ),
+                     ),
+                   ],
+                 ),
+               ),
+             ),
+              ListTile(
+                leading: FaIcon(FontAwesomeIcons.home,size: 15,color: Colors.grey[600],),
+                title: Text('Home',style: TextStyle(color: Colors.grey[600]),),
+                onTap: () {
+                  // Handle the tap here
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Naviga()));
+                },
+              ),
+              ListTile(
+                leading: FaIcon(FontAwesomeIcons.book,size: 15,color: Colors.grey[600]),
+                title: Text('My Learning',style: TextStyle(color: Colors.grey[600]),),
+                onTap: () {
+                  // Handle the tap here
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Learning()));
+                },
+              ),
+              ListTile(
+                leading: FaIcon(FontAwesomeIcons.graduationCap,size: 15,color: Colors.grey[600]),
+                title: Text('Scholarship',style: TextStyle(color: Colors.grey[600]),),
+                onTap: () {
+                  // Handle the tap here
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Scholarship()));
+                },
+              ),
+              ListTile(
+                leading:Icon(Icons.person,size: 20,color: Colors.grey[600]),
+                title: Text("Contact Us",style: TextStyle(color: Colors.grey[600]),),
+                onTap: () {
+
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>contact ()));
+                  // Handle the tap here
+                },
+              ),
+          SizedBox(height: 310,),
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Container(height: 43,width: 163,
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(12),color: Colors.grey[300]
+              ),
+              child: Row(mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  FaIcon(FontAwesomeIcons.signOutAlt,size: 15),
+                  SizedBox(width: 10,),
+                  Text('Sign Out',style: TextStyle(fontSize: 16),),
+                ],
+              )
+              ),
+          ),
+            ],
+          ),
+        ),
+      ),
       backgroundColor: Colors.white,
       body: ListView(
         children: [
@@ -47,10 +141,14 @@ class _Screen1State extends State<Screen1> {
             ),
             trailing: Padding(
               padding: const EdgeInsets.only(bottom: 10),
-              child: Image.asset(
-                "assets/image/menu (2).png",
-                color: Colors.black,
-                height: 34,
+              child: InkWell(onTap: (){
+                _scaffoldkey.currentState?.openEndDrawer();
+              },
+                child: Image.asset(
+                  "assets/image/menu (2).png",
+                  color: Colors.black,
+                  height: 34,
+                ),
               ),
             ),
           ),
@@ -142,7 +240,9 @@ class _Screen1State extends State<Screen1> {
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.black87),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Scholarship()));
+                        },
                         child: Text(
                           "              Check Eligibility             ",
                           style: TextStyle(color: Colors.white),
