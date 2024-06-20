@@ -2,6 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 
+import 'datascience.dart';
+import 'flutter.dart';
+import 'mernstack.dart';
+
 void main() {
   runApp(MaterialApp(
     home: Screen1(),
@@ -173,7 +177,7 @@ class _Screen1State extends State<Screen1> {
                                 topRight:Radius.circular(15) )
                               ,child: Image(
                                 image:
-                                AssetImage("assets/image/illustration-social-media-concept_53876-18141.avif"),
+                                AssetImage("assets/image/DataScience_shutterstock_1054542323 (1).png"),
                                 fit: BoxFit.fill,
                                 height: 97,width: 175,
                               ),
@@ -212,7 +216,9 @@ class _Screen1State extends State<Screen1> {
                                 child: ElevatedButton(
                                   style: ElevatedButton.styleFrom(
                                       backgroundColor: Colors.black87),
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Data()));
+                                  },
                                   child: Text(
                                     "   23 Lessons  ",
                                     style: TextStyle(color: Colors.white),
@@ -282,7 +288,9 @@ class _Screen1State extends State<Screen1> {
                                 child: ElevatedButton(
                                   style: ElevatedButton.styleFrom(
                                       backgroundColor: Colors.black87),
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.push(context, MaterialPageRoute(builder: (context)=>mern()));
+                                  },
                                   child: Text(
                                     "   12 Lessons  ",
                                     style: TextStyle(color: Colors.white),
@@ -351,7 +359,9 @@ class _Screen1State extends State<Screen1> {
                                 child: ElevatedButton(
                                   style: ElevatedButton.styleFrom(
                                       backgroundColor: Colors.black87),
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.push(context, MaterialPageRoute(builder: (context)=>flutter()));
+                                  },
                                   child: Text(
                                     "   23 Lessons  ",
                                     style: TextStyle(color: Colors.white),

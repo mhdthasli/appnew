@@ -12,7 +12,7 @@ class Regi extends StatelessWidget {
     appBar: AppBar(backgroundColor: Colors.white,leading: InkWell(onTap: (){
       Navigator.pop(context);
     },
-        child: Icon(Icons.arrow_back_ios_new_sharp,color: Colors.black87,size: 20,)),),
+        child: Icon(Icons.arrow_back_ios_new_sharp,color: Colors.black87,size: 25,)),),
 
 
     body: ListView(

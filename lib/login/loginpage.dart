@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../regi/registration.dart';
+
 void main() {
   runApp(MaterialApp(
     home: Login(),
@@ -104,7 +106,9 @@ class _LoginState extends State<Login> {
           SizedBox(height: 26),
           Center(
               child: InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Regi()));
+                  },
                   child: Padding(
                     padding: const EdgeInsets.only(left:100),
                     child: Row(
